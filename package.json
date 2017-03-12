@@ -43,7 +43,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "config": {
     "commitizen": {
