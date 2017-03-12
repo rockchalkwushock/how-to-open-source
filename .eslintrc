@@ -1,0 +1,7 @@
+{
+  "extends": "equimper",
+  "plugins": ["flowtype"],
+  "env": {
+    "jest": true
+  }
+}

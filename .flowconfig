@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/.*
+.*/flow-typed/.*
+.*/coverage/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[options]

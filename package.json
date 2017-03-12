@@ -1,0 +1,81 @@
+{
+  "name": "how-to-open-source",
+  "version": "0.1.0-beta.0",
+  "description": "A repository for learning how to publish NPM & Yarn packages as well as contribute to open source projects.",
+  "author": "Cody Brunner <rockchalkwushock@iclould.com> (https://rockchalkwushock.github.io/rcws-development/)",
+  "homepage": "https://github.com/rockchalkwushock/how-to-open-source#readme",
+  "license": "MIT",
+  "browser": "dist/how-to-open-source.js",
+  "main": "lib/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "README.md"
+  ],
+  "keywords": [
+    "open-source",
+    "npm",
+    "yarn",
+    "semantic-release"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rockchalkwushock/how-to-open-source.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rockchalkwushock/how-to-open-source/issues"
+  },
+  "scripts": {
+    "pre-build": "rimraf lib dist coverage package *.tgz",
+    "pre-commit": "npm run lint && npm run flow && npm run test:coverage",
+    "build": "npm-run-all --parallel build:*",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:umd": "webpack --output-filename how-to-open-source.js",
+    "build:umd.min": "webpack -p --output-filename how-to-open-source.min.js",
+    "commit": "git-cz",
+    "flow": "flow check src",
+    "lint": "eslint src __tests__",
+    "test": "cross-env BABEL_ENV=commonjs jest --config=.jestConfig.json",
+    "test:coverage": "npm test -- --coverage",
+    "test:package": "babel-node sandbox.js",
+    "test:watch": "npm test -- --watch",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "babel-cli": "6.23.0",
+    "babel-jest": "19.0.0",
+    "babel-loader": "6.4.0",
+    "babel-plugin-syntax-flow": "6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.23.0",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-react": "6.23.0",
+    "babel-preset-stage-0": "6.22.0",
+    "codecov": "1.0.1",
+    "commitizen": "2.9.6",
+    "cross-env": "3.2.3",
+    "cz-conventional-changelog": "2.0.0",
+    "eslint": "3.17.1",
+    "eslint-config-equimper": "1.4.0",
+    "eslint-plugin-flowtype": "2.30.3",
+    "flow-bin": "0.41.0",
+    "flow-typed": "2.0.0",
+    "husky": "0.13.2",
+    "jest": "19.0.2",
+    "jest-cli": "19.0.2",
+    "npm-run-all": "4.0.2",
+    "regenerator-runtime": "0.10.3",
+    "rimraf": "2.6.1",
+    "semantic-release": "^6.3.2",
+    "webpack": "2.2.1"
+  }
+}

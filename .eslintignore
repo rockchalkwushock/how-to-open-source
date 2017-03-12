@@ -1,0 +1,13 @@
+# Node
+node_modules
+npm-debug.log
+
+# Flow
+flow-typed
+
+# Testing
+coverage
+
+# Other
+package
+*.tgz
