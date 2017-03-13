@@ -1,6 +1,6 @@
 {
   "name": "how-to-open-source",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A repository for learning how to publish NPM packages as well as contribute to open source projects.",
   "author": "Cody Brunner <rockchalkwushock@iclould.com> (https://rockchalkwushock.github.io/rcws-development/)",
   "homepage": "https://github.com/rockchalkwushock/how-to-open-source#readme",
