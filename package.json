@@ -34,7 +34,7 @@
     "commit": "git-cz",
     "flow": "flow check",
     "lint": "eslint src __tests__",
-    "prebuild": "rimraf coverage dist lib package *.tgz",
+    "prebuild": "rimraf dist lib package *.tgz",
     "precommit": "npm run lint && npm run flow && npm run test:coverage",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
