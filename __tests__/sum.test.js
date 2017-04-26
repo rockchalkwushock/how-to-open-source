@@ -1,6 +1,4 @@
-'use strict';
-
-import sum from '../src/sum';
+import { sum } from '../src';
 
 test('returns: 3', () => {
   const actual = sum(1, 2);

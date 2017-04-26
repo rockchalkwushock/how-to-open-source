@@ -1,5 +1,8 @@
 {
-  "extends": "equimper",
+  "extends": [
+    "equimper",
+    "prettier"
+  ],
   "plugins": ["flowtype"],
   "env": {
     "jest": true

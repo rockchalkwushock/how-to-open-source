@@ -11,3 +11,4 @@ coverage
 # Other
 package
 *.tgz
+scripts

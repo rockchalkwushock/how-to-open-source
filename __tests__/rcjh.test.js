@@ -1,5 +1,3 @@
-'use strict';
-
 import { rcjh } from '../src';
 
 test('returns: ROCK CHALK JAYHAWK, KU!', () => {
