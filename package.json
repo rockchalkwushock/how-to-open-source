@@ -7,10 +7,12 @@
   "license": "MIT",
   "browser": "dist/how-to-open-source.js",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
     "dist",
+    "es",
     "lib",
     "LICENSE"
   ],
@@ -30,20 +32,20 @@
   "scripts": {
     "build": "npm-run-all --parallel build:*",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "babel src --out-dir es",
     "build:umd": "webpack --output-filename how-to-open-source.js",
     "build:umd.min": "webpack -p --output-filename how-to-open-source.min.js",
     "commit": "git-cz",
     "flow": "flow check",
     "lint": "eslint src __tests__",
     "lint:fix": "yarn lint -- --fix",
-    "prebuild": "rimraf dist lib package *.tgz",
+    "prebuild": "rimraf dist es lib package *.tgz",
     "precommit": "lint-staged && yarn flow && yarn test:coverage",
     "prettier": "node ./scripts/prettier.js write",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
     "test": "cross-env BABEL_ENV=commonjs jest --config=.jestConfig.json",
     "test:coverage": "yarn test -- --coverage",
-    "test:package": "babel-node sandbox.js",
     "test:watch": "yarn test -- --watch"
   },
   "publishConfig": {
