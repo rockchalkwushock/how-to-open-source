@@ -37,7 +37,7 @@
     "lint": "eslint src __tests__",
     "lint:fix": "yarn lint -- --fix",
     "prebuild": "rimraf dist lib package *.tgz",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged && yarn flow && yarn test:coverage",
     "prettier": "node ./scripts/prettier.js write",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
@@ -57,8 +57,7 @@
   "lint-staged": {
     "*.js": [
       "yarn lint:fix",
-      "yarn prettier",
-      "yarn test:coverage"
+      "yarn prettier"
     ]
   },
   "devDependencies": {
