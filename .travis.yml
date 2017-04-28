@@ -5,13 +5,12 @@ cache:
 branches:
   only:
     - master
-    - update-2
+    - fix/ci
     - /^greenkeeper/.*$/
 node_js:
   - '7'
   - '6'
 script:
-  - yarn start validate
   - yarn build
 after_success:
   - yarn start reportCoverage
