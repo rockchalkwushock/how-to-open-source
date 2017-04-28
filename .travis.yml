@@ -5,19 +5,15 @@ cache:
 branches:
   only:
     - master
+    - update-2
     - /^greenkeeper/.*$/
-notifications:
-  email: false
 node_js:
   - '7'
   - '6'
-  - '4'
-before_script:
-  - npm prune
 script:
-  - npm run test:coverage
-  - npm run build
+  - yarn start validate
+  - yarn build
 after_success:
-  - npm run report-coverage
-  - npm run semantic-release
-
+  - yarn start reportCoverage
+  - yarn start bithound
+  - yarn start release

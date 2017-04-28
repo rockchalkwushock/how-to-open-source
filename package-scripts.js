@@ -1,0 +1,89 @@
+const npsUtils = require('nps-utils');
+
+// npsUtils has these deps native to the package.
+// no need to yarn add -D any of these packages.
+const concurrent = npsUtils.concurrent;
+const crossEnv = npsUtils.crossEnv;
+const rimraf = npsUtils.rimraf;
+const series = npsUtils.series;
+
+module.exports = {
+  scripts: {
+    bithound: {
+      description: 'Sends repository info to bithound for processing.',
+      script: 'bithound check git@github.com:rockchalkwushock/how-to-open-source.git',
+    },
+    build: {
+      description: 'Building in production environment.',
+      default: `${crossEnv('NODE_ENV=production')} rollup -c`,
+      dev: {
+        description: 'Building in development environment.',
+        script: `${crossEnv('NODE_ENV=development')} rollup -c`,
+      },
+    },
+    commit: {
+      description: 'Run commitizen-cli.',
+      script: 'git-cz',
+    },
+    flow: {
+      description: 'Type-check code base.',
+      script: 'flow check',
+    },
+    library: {
+      description: 'Generate tarball file & open',
+      default: series.nps('library.pack', 'library.open'),
+      open: {
+        description: 'Open the tarball file',
+        script: 'open how-to-open-source-1.1.0.tgz',
+      },
+      pack: {
+        description: 'Package the build for local use',
+        script: 'npm pack',
+      },
+    },
+    lint: {
+      default: {
+        description: 'Perform lint check on selected code.',
+        script: 'eslint src',
+      },
+      fix: {
+        description: 'Perform lint check on selected code & fix all errors.',
+        script: 'eslint src --fix',
+      },
+    },
+    clean: {
+      description: 'Clean project directory of generated directories & files.',
+      script: series(
+        rimraf('dist'),
+        rimraf('es'),
+        rimraf('lib'),
+        rimraf('package'),
+        rimraf('*.tgz')
+      ),
+    },
+    reportCoverage: {
+      description: 'Send coverage information to third party.',
+      script: 'codecov',
+    },
+    release: {
+      description: 'We automate releases with semantic-release. This should only be run on travis',
+      script: series(
+        'semantic-release pre',
+        'yarn publish',
+        'semantic-release post'
+      ),
+    },
+    test: {
+      description: 'Test code base.',
+      default: 'jest --config .jestConfig.json --coverage',
+      watch: {
+        description: 'Watch tests.',
+        script: 'jest --config .jestConfig.json --watch',
+      }
+    },
+    validate: {
+      description: 'Validate code with linting & type-checking.',
+      script: concurrent.nps('lint', 'flow', 'test'),
+    },
+  },
+};

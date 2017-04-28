@@ -1,52 +1,38 @@
 {
   "name": "how-to-open-source",
   "version": "1.1.0",
+  "license": "MIT",
   "description": "A repository for learning how to publish NPM packages as well as contribute to open source projects.",
   "author": "Cody Brunner <rockchalkwushock@iclould.com> (https://rockchalkwushock.github.io/rcws-development/)",
   "homepage": "https://github.com/rockchalkwushock/how-to-open-source#readme",
-  "license": "MIT",
+  "repository": "https://github.com/rockchalkwushock/how-to-open-source.git",
+  "bugs": "https://github.com/rockchalkwushock/how-to-open-source/issues",
   "browser": "dist/how-to-open-source.js",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
     "dist",
     "es",
     "lib",
     "LICENSE"
   ],
   "keywords": [
+    "commitizen",
     "open-source",
     "npm",
+    "nps",
+    "rollup",
     "semantic-release",
     "yarn"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rockchalkwushock/how-to-open-source.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rockchalkwushock/how-to-open-source/issues"
-  },
   "scripts": {
-    "build": "npm-run-all --parallel build:*",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "babel src --out-dir es",
-    "build:umd": "webpack --output-filename how-to-open-source.js",
-    "build:umd.min": "webpack -p --output-filename how-to-open-source.min.js",
-    "commit": "git-cz",
-    "flow": "flow check",
-    "lint": "eslint src __tests__",
-    "lint:fix": "yarn lint -- --fix",
-    "prebuild": "rimraf dist es lib package *.tgz",
-    "precommit": "lint-staged && yarn flow && yarn test:coverage",
+    "build": "nps build",
+    "commit": "nps commit",
+    "prebuild": "nps clean && nps validate",
+    "precommit": "lint-staged && nps validate",
     "prettier": "node ./scripts/prettier.js write",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
-    "test": "cross-env BABEL_ENV=commonjs jest --config=.jestConfig.json",
-    "test:coverage": "yarn test -- --coverage",
-    "test:watch": "yarn test -- --watch"
+    "start": "nps",
+    "test": "nps test"
   },
   "publishConfig": {
     "access": "public"
@@ -58,38 +44,22 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn lint:fix",
-      "yarn prettier"
+      "yarn prettier",
+      "git add"
     ]
   },
   "devDependencies": {
     "babel-cli": "~6.24.1",
     "babel-core": "~6.24.1",
     "babel-jest": "~19.0.0",
-    "babel-loader": "~7.0.0",
-    "babel-plugin-check-es2015-constants": "~6.22.0",
+    "babel-plugin-external-helpers": "~6.22.0",
     "babel-plugin-syntax-flow": "~6.18.0",
-    "babel-plugin-transform-es2015-arrow-functions": "~6.22.0",
-    "babel-plugin-transform-es2015-block-scoped-functions": "~6.22.0",
-    "babel-plugin-transform-es2015-block-scoping": "~6.24.1",
-    "babel-plugin-transform-es2015-classes": "~6.24.1",
-    "babel-plugin-transform-es2015-computed-properties": "~6.24.1",
-    "babel-plugin-transform-es2015-destructuring": "~6.23.0",
-    "babel-plugin-transform-es2015-for-of": "~6.23.0",
-    "babel-plugin-transform-es2015-function-name": "~6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "~6.24.1",
-    "babel-plugin-transform-es2015-object-super": "~6.24.1",
-    "babel-plugin-transform-es2015-parameters": "~6.24.1",
-    "babel-plugin-transform-es2015-shorthand-properties": "~6.24.1",
-    "babel-plugin-transform-es2015-spread": "~6.22.0",
-    "babel-plugin-transform-es2015-sticky-regex": "~6.24.1",
-    "babel-plugin-transform-es2015-template-literals": "~6.22.0",
-    "babel-plugin-transform-es2015-unicode-regex": "~6.24.1",
     "babel-plugin-transform-flow-strip-types": "~6.22.0",
+    "babel-preset-env": "~1.4.0",
+    "bithound": "~1.7.0",
     "chalk": "~1.1.3",
     "codecov": "~2.1.0",
     "commitizen": "~2.9.6",
-    "cross-env": "~4.0.0",
     "cz-conventional-changelog": "~2.0.0",
     "eslint": "~3.19.0",
     "eslint-config-equimper": "~1.6.3",
@@ -102,10 +72,18 @@
     "jest": "~19.0.2",
     "jest-cli": "~19.0.2",
     "lint-staged": "~3.4.0",
-    "npm-run-all": "~4.0.2",
+    "nps": "~5.1.0",
+    "nps-utils": "~1.2.0",
     "prettier": "~1.2.2",
-    "rimraf": "~2.6.1",
-    "semantic-release": "~6.3.2",
-    "webpack": "~2.4.1"
+    "rollup": "~0.41.6",
+    "rollup-plugin-babel": "~2.7.1",
+    "rollup-plugin-cleanup": "~1.0.0",
+    "rollup-plugin-conditional": "~1.1.1",
+    "rollup-plugin-filesize": "~1.3.2",
+    "rollup-plugin-flow": "~1.1.1",
+    "rollup-plugin-gzip": "~1.1.0",
+    "rollup-plugin-multidest": "~1.0.1",
+    "rollup-plugin-uglify": "~1.0.2",
+    "semantic-release": "~6.3.2"
   }
 }
