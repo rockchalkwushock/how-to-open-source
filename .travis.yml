@@ -5,7 +5,6 @@ cache:
 branches:
   only:
     - master
-    - fix/ci
     - /^greenkeeper/.*$/
 node_js:
   - '7'

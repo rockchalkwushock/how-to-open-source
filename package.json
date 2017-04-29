@@ -28,7 +28,7 @@
   "scripts": {
     "build": "nps build",
     "commit": "nps commit",
-    "prebuild": "nps clean && nps validate",
+    "prebuild": "nps validate",
     "precommit": "lint-staged && nps validate",
     "prettier": "node ./scripts/prettier.js write",
     "start": "nps",
