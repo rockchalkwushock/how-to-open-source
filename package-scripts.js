@@ -69,7 +69,7 @@ module.exports = {
       description: 'We automate releases with semantic-release. This should only be run on travis',
       script: series(
         'semantic-release pre',
-        'yarn publish',
+        'npm publish',
         'semantic-release post'
       ),
     },
