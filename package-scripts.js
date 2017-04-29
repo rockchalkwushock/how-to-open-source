@@ -73,6 +73,18 @@ module.exports = {
         'semantic-release post'
       ),
     },
+    sandbox: {
+      description: 'Run all sandbox scripts.',
+      default: series.nps('sandbox.cjs', 'sandbox.es'),
+      cjs: {
+        description: 'Run commonjs code.',
+        script: 'babel-node sandbox-cjs.js',
+      },
+      es: {
+        description: 'Run es2015 code.',
+        script: `babel-node sandbox-es.js`,
+      },
+    },
     test: {
       description: 'Test code base.',
       default: 'jest --config .jestConfig.json --coverage',
@@ -82,7 +94,7 @@ module.exports = {
       }
     },
     validate: {
-      description: 'Validate code with linting & type-checking.',
+      description: 'Validate code through lint, flow, & test suite',
       script: concurrent.nps('lint', 'flow', 'test'),
     },
   },

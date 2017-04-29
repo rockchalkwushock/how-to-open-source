@@ -25,7 +25,7 @@ This module is meant as a learning/training tool for those interested in publish
 
 ## :notebook: Documentation :notebook:
 
-> Documentation is still present in the [wiki](https://github.com/rockchalkwushock/how-to-open-source/wiki), but is under construction :simple_smile: :100:
+> Documentation is still present in the [wiki](https://github.com/rockchalkwushock/how-to-open-source/wiki), but is under construction :100:
 
 ## Installation
 
@@ -67,13 +67,12 @@ Scripts in the `package.json`:
 
 ```bash
 yarn build
-# prebuild git-hook will run first cleaning the repository &
-# validating the code prior to building.
+# prebuild git-hook will run first validating the code...
 # Executes rollup build of all distributions in production mode
 
 yarn commit
 # precommit git-hook will run first executing scripts
-# in lint-staged & validating the code.
+# in lint-staged & validating the code...
 # Executes the commitizen-cli
 
 yarn prettier
