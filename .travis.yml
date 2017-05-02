@@ -12,7 +12,7 @@ node_js:
   - '6'
 script:
   - yarn start validate.withCoverage
-  - yarn build
+  - yarn start build.andTest
 after_success:
   - yarn start reportCoverage
   - yarn start bithound
