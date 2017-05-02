@@ -5,6 +5,7 @@ cache:
 branches:
   only:
     - master
+    - test/build
     - /^greenkeeper/.*$/
 node_js:
   - '7'
