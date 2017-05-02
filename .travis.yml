@@ -5,12 +5,14 @@ cache:
 branches:
   only:
     - master
+    - test/build
     - /^greenkeeper/.*$/
 node_js:
   - '7'
   - '6'
 script:
-  - yarn build
+  - yarn start validate.withCoverage
+  - yarn start build.andTest
 after_success:
   - yarn start reportCoverage
   - yarn start bithound

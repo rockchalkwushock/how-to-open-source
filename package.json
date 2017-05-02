@@ -26,9 +26,9 @@
     "yarn"
   ],
   "scripts": {
-    "build": "nps build",
+    "build": "nps build.andTest",
     "commit": "nps commit",
-    "prebuild": "nps validate",
+    "prebuild": "nps validate.withTests",
     "precommit": "lint-staged && nps validate",
     "prettier": "node ./scripts/prettier.js write",
     "start": "nps",

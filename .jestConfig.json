@@ -1,6 +1,7 @@
 {
   "bail": true,
   "testEnvironment": "node",
+  "testPathIgnorePatterns": ["/utils/"],
   "collectCoverageFrom": [
     "src/*.js"
   ],
