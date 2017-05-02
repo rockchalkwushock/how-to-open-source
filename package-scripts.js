@@ -16,6 +16,10 @@ module.exports = {
     build: {
       description: 'Building in production environment.',
       default: `${crossEnv('NODE_ENV=production')} rollup -c`,
+      andTest: {
+        description: 'Run production build & test the output bundles.',
+        script: series.nps('build', 'test.build'),
+      },
       dev: {
         description: 'Building in development environment.',
         script: `${crossEnv('NODE_ENV=development')} rollup -c`,
@@ -54,6 +58,7 @@ module.exports = {
     clean: {
       description: 'Clean project directory of generated directories & files.',
       script: series(
+        rimraf('coverage'),
         rimraf('dist'),
         rimraf('es'),
         rimraf('lib'),
@@ -87,15 +92,31 @@ module.exports = {
     },
     test: {
       description: 'Test code base.',
-      default: 'jest --config .jestConfig.json --coverage',
+      default: 'jest __tests__/*pre.test.js --config .jestConfig.json',
+      build: {
+        description: 'Test end product.',
+        script: 'jest __tests__/*.post.test.js --config .jestConfig.json',
+      },
+      coverage: {
+        description: 'Generate coverage on code base.',
+        script: series.nps('test --coverage'),
+      },
       watch: {
         description: 'Watch tests.',
-        script: 'jest --config .jestConfig.json --watch',
+        script: series.nps('test --watch'),
       }
     },
     validate: {
-      description: 'Validate code through lint, flow, & test suite',
-      script: concurrent.nps('lint', 'flow', 'test'),
+      description: 'Validate code by linting, type-checking.',
+      default: concurrent.nps('lint', 'flow'),
+      withCoverage: {
+        description: 'Validate & generate coverage.',
+        script: concurrent.nps('validate', 'test.coverage'),
+      },
+      withTests: {
+        description: 'Validate with testing',
+        script: concurrent.nps('validate', 'test'),
+      },
     },
   },
 };

@@ -11,6 +11,7 @@ node_js:
   - '7'
   - '6'
 script:
+  - yarn start validate.withCoverage
   - yarn build
 after_success:
   - yarn start reportCoverage
