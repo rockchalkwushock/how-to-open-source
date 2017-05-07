@@ -63,7 +63,7 @@
     "cz-conventional-changelog": "~2.0.0",
     "eslint": "~3.19.0",
     "eslint-config-equimper": "~1.6.3",
-    "eslint-config-prettier": "~1.7.0",
+    "eslint-config-prettier": "~2.0.0",
     "eslint-plugin-flowtype": "~2.32.1",
     "flow-bin": "~0.45.0",
     "flow-typed": "~2.1.2",
