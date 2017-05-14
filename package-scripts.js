@@ -52,7 +52,7 @@ module.exports = {
       },
       fix: {
         description: 'Perform lint check on selected code & fix all errors.',
-        script: 'eslint src --fix',
+        script: series.nps('lint --fix'),
       },
     },
     clean: {
@@ -92,10 +92,10 @@ module.exports = {
     },
     test: {
       description: 'Test code base.',
-      default: 'jest __tests__/*pre.test.js --config .jestConfig.json',
+      default: 'jest __tests__/*pre.test.js --config jest.config.json',
       build: {
         description: 'Test end product.',
-        script: 'jest __tests__/*.post.test.js --config .jestConfig.json',
+        script: 'jest __tests__/*.post.test.js --config jest.config.json',
       },
       coverage: {
         description: 'Generate coverage on code base.',
