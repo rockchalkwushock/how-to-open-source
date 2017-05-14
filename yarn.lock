@@ -353,7 +353,7 @@ babel-core@6, babel-core@^6.0.0, babel-core@^6.24.1, babel-core@~6.24.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@^7.2.2:
+babel-eslint@^7.2.3:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.2.3.tgz#b2fe2d80126470f5c19442dc757253a897710827"
   dependencies:
@@ -1695,11 +1695,11 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-equimper@~1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-equimper/-/eslint-config-equimper-1.6.3.tgz#7757579ac4ea8f5da28a1763b435dd52a94f5d13"
+eslint-config-equimper@~1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-equimper/-/eslint-config-equimper-1.6.4.tgz#9320ff48a5b50a67992c3f73edb1564fd705afa6"
   dependencies:
-    babel-eslint "^7.2.2"
+    babel-eslint "^7.2.3"
     eslint "^3.19.0"
     eslint-plugin-class-property "^1.0.6"
     eslint-plugin-import "^2.2.0"
@@ -1733,9 +1733,9 @@ eslint-plugin-class-property@^1.0.6:
   dependencies:
     eslint "^3.19.0"
 
-eslint-plugin-flowtype@~2.32.1:
-  version "2.32.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.32.1.tgz#bbee185dedf97e5f63ec975cdcddd199bd2a2501"
+eslint-plugin-flowtype@~2.33.0:
+  version "2.33.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.33.0.tgz#b2783814ed2ddcf729953b8f65ff73c90cabee4b"
   dependencies:
     lodash "^4.15.0"
 
