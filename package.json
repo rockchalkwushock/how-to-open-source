@@ -62,9 +62,9 @@
     "commitizen": "~2.9.6",
     "cz-conventional-changelog": "~2.0.0",
     "eslint": "~3.19.0",
-    "eslint-config-equimper": "~1.6.3",
+    "eslint-config-equimper": "~1.6.4",
     "eslint-config-prettier": "~2.1.0",
-    "eslint-plugin-flowtype": "~2.32.1",
+    "eslint-plugin-flowtype": "~2.33.0",
     "flow-bin": "~0.46.0",
     "flow-typed": "~2.1.2",
     "glob": "~7.1.1",
@@ -82,7 +82,7 @@
     "rollup-plugin-filesize": "~1.3.2",
     "rollup-plugin-flow": "~1.1.1",
     "rollup-plugin-gzip": "~1.1.0",
-    "rollup-plugin-multidest": "~1.0.1",
+    "rollup-plugin-multi-dest": "~1.0.2",
     "rollup-plugin-uglify": "~1.0.2",
     "semantic-release": "~6.3.2"
   }

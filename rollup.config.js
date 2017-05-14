@@ -5,7 +5,7 @@ import conditional from 'rollup-plugin-conditional';
 import filesize from 'rollup-plugin-filesize';
 import flow from 'rollup-plugin-flow';
 import gzip from 'rollup-plugin-gzip';
-import multidest from 'rollup-plugin-multidest';
+import multidest from 'rollup-plugin-multi-dest';
 import uglify from 'rollup-plugin-uglify';
 
 // Environment Check.
