@@ -1482,6 +1482,10 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
 
+deepmerge@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.3.2.tgz#1663691629d4dbfe364fa12a2a4f0aa86aa3a050"
+
 default-require-extensions@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
@@ -4799,9 +4803,12 @@ rollup-plugin-gzip@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-gzip/-/rollup-plugin-gzip-1.1.0.tgz#95cf719813b2c2141e1594a291f183c4aebc7efb"
 
-rollup-plugin-multidest@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-multidest/-/rollup-plugin-multidest-1.0.0.tgz#8bc88d16f6bacc0a6ae66a0bab45475ae4057371"
+rollup-plugin-multi-dest@~1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-multi-dest/-/rollup-plugin-multi-dest-1.0.2.tgz#ec695726c96c7567881b87eafb0c856742e4c354"
+  dependencies:
+    deepmerge "^1.3.2"
+    rollup "^0.41.6"
 
 rollup-plugin-uglify@~1.0.2:
   version "1.0.2"
@@ -4823,7 +4830,7 @@ rollup-pluginutils@^2.0.1:
     estree-walker "^0.3.0"
     micromatch "^2.3.11"
 
-rollup@~0.41.6:
+rollup@^0.41.6, rollup@~0.41.6:
   version "0.41.6"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.41.6.tgz#e0d05497877a398c104d816d2733a718a7a94e2a"
   dependencies:
