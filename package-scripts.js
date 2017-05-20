@@ -92,7 +92,7 @@ module.exports = {
     },
     test: {
       description: 'Test code base.',
-      default: 'jest __tests__/*pre.test.js --config jest.config.json',
+      default: 'jest __tests__/*pre.test.js --config jest.config.json --runInBand',
       build: {
         description: 'Test end product.',
         script: 'jest __tests__/*.post.test.js --config jest.config.json',
