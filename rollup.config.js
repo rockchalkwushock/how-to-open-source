@@ -21,20 +21,6 @@ const opts = {
   },
   flow: { pretty: true },
   gzip: { minSize: 1000 },
-  uglify: {
-    compress: {
-      pure_getters: true,
-      unsafe: true,
-      warnings: false,
-      screw_ie8: false,
-    },
-    mangle: {
-      screw_ie8: false,
-    },
-    output: {
-      screw_ie8: false,
-    },
-  },
 };
 
 export default {
@@ -58,7 +44,7 @@ export default {
       {
         format: 'umd',
         dest: 'dist/how-to-open-source.min.js',
-        plugins: [flow(opts.flow), babel(opts.babel), uglify(opts.uglify)],
+        plugins: [flow(opts.flow), babel(opts.babel), uglify()],
       },
     ]),
     gzip(opts.gzip),
