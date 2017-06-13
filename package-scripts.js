@@ -9,10 +9,6 @@ const series = npsUtils.series;
 
 module.exports = {
   scripts: {
-    bithound: {
-      description: 'Sends repository info to bithound for processing.',
-      script: 'bithound check git@github.com:rockchalkwushock/how-to-open-source.git',
-    },
     build: {
       description: 'Building in production environment.',
       default: `${crossEnv('NODE_ENV=production')} rollup -c`,
