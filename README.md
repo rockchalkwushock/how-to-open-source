@@ -9,8 +9,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://codecov.io/gh/rockchalkwushock/how-to-open-source)
 [![Code Climate](https://img.shields.io/codeclimate/github/rockchalkwushock/how-to-open-source/badges/gpa.svg?style=flat-square)](https://codeclimate.com/github/rockchalkwushock/how-to-open-source)
 [![DependencyCI](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/badge?style=flat-square)](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/builds/1)
-[![bitHound](https://img.shields.io/bithound/code/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://www.bithound.io/github/rockchalkwushock/how-to-open-source)
-[![Greenkeeper badge](https://badges.greenkeeper.io/rockchalkwushock/how-to-open-source.svg)](https://greenkeeper.io/)
+[![Greenkeeper](https://img.shields.io/badge/Greenkeeper-enabled-brightgreen.svg?style=flat-square)](https://greenkeeper.io/)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/rockchalkwushock/how-to-open-source/pulls)
@@ -18,6 +17,7 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![bundled with rollup](https://img.shields.io/badge/bundled%20with-rollup-orange.svg?style=flat-square)](https://github.com/rollup/rollup)
 [![nps](https://img.shields.io/badge/scripts%20run%20with-nps-blue.svg?style=flat-square)](https://github.com/kentcdodds/nps)
+[![code style equimper](https://img.shields.io/badge/code%20style-equimper-blue.svg?style=flat-square)](https://github.com/EQuimper/eslint-config-equimper)
 
 ## Purpose
 
