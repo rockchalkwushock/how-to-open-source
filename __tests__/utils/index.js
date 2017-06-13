@@ -9,9 +9,10 @@ const isObject = (item: {}): boolean => {
   return true;
 };
 
-const hasExports = (
-  item: { rcjh: () => string, sum: () => number },
-): boolean => {
+const hasExports = (item: {
+  rcjh: () => string,
+  sum: () => number,
+}): boolean => {
   const itemExports = {
     rcjh: 'function',
     sum: 'function',
