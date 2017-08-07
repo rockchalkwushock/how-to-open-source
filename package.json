@@ -72,7 +72,7 @@
     "nps-utils": "~1.2.0",
     "prettier": "^1.5.3",
     "rollup": "^0.45.2",
-    "rollup-plugin-babel": "~2.7.1",
+    "rollup-plugin-babel": "~3.0.0",
     "rollup-plugin-cleanup": "~1.0.0",
     "rollup-plugin-conditional": "~1.1.1",
     "rollup-plugin-filesize": "~1.4.2",
