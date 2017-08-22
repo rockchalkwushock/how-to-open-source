@@ -4,8 +4,8 @@
  * https://github.com/paypal/glamorous/blob/master/dist-test/index.js
  */
 
-import assert from 'assert';
-import { hasExports, isObject } from './utils';
+import assert from 'assert'
+import { hasExports, isObject } from './utils'
 
 /**
  * ES6 Import declarations for library:
@@ -15,40 +15,32 @@ import { hasExports, isObject } from './utils';
  *
  * '../' reads directly from "main" in package.json
  */
-import * as cjsImport from '../';
-import * as esImport from '../es';
-import * as umdImport from '../dist/how-to-open-source';
-import * as umdMinImport from '../dist/how-to-open-source.min';
+import * as cjsImport from '../'
+import * as esImport from '../es'
+import * as umdImport from '../dist/how-to-open-source'
 
 /**
  * CommonJS require declarations for library.
  *
  * No need to do this with ES Modules.
  */
-const cjsRequire = require('../');
-const umdRequire = require('../dist/how-to-open-source');
-const umdMinRequire = require('../dist/how-to-open-source.min');
+const cjsRequire = require('../')
+const umdRequire = require('../dist/how-to-open-source')
 
 if (process.env.JEST_ENV !== 'post-build') {
   test('CJS build works with ES imports', () => {
-    assert(isObject(cjsImport) && hasExports(cjsImport));
-  });
+    assert(isObject(cjsImport) && hasExports(cjsImport))
+  })
   test('ES build works with ES imports', () => {
-    assert(isObject(esImport) && hasExports(esImport));
-  });
+    assert(isObject(esImport) && hasExports(esImport))
+  })
   test('UMD build works with ES imports', () => {
-    assert(isObject(umdImport) && hasExports(umdImport));
-  });
-  test('UMD-min build works with ES imports', () => {
-    assert(isObject(umdMinImport) && hasExports(umdMinImport));
-  });
+    assert(isObject(umdImport) && hasExports(umdImport))
+  })
   test('CJS build works with CJS require', () => {
-    assert(isObject(cjsRequire) && hasExports(cjsRequire));
-  });
+    assert(isObject(cjsRequire) && hasExports(cjsRequire))
+  })
   test('UMD build works with CJS require', () => {
-    assert(isObject(umdRequire) && hasExports(umdRequire));
-  });
-  test('UMD-min build works with CJS require', () => {
-    assert(isObject(umdMinRequire) && hasExports(umdMinRequire));
-  });
+    assert(isObject(umdRequire) && hasExports(umdRequire))
+  })
 }

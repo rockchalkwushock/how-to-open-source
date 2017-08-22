@@ -1,15 +1,12 @@
 /* @flow */
-import babel from 'rollup-plugin-babel';
-import cleanup from 'rollup-plugin-cleanup';
-import conditional from 'rollup-plugin-conditional';
-import filesize from 'rollup-plugin-filesize';
-import flow from 'rollup-plugin-flow';
-import gzip from 'rollup-plugin-gzip';
-import multidest from 'rollup-plugin-multi-dest';
-import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel'
+import cleanup from 'rollup-plugin-cleanup'
+import flow from 'rollup-plugin-flow'
+import gzip from 'rollup-plugin-gzip'
+import uglify from 'rollup-plugin-uglify'
 
-// Environment Check.
-const isProd = process.env.NODE_ENV === 'production';
+import pkg from './package.json'
+
 // Plugin options objects.
 const opts = {
   // Pass exact config needed for rollup to build cjs.
@@ -17,38 +14,31 @@ const opts = {
     exclude: 'node_modules/**',
     babelrc: false, // will not look at local .babelrc
     presets: [['env', { loose: true, modules: false }]],
-    plugins: ['external-helpers'],
+    plugins: ['external-helpers']
   },
   flow: { pretty: true },
-  gzip: { minSize: 1000 },
-};
+  gzip: { minSize: 1000 }
+}
 
+// Configuration for outputting CJS & Browser Modules.
 export default {
-  entry: 'src/index.js',
-  moduleName: 'how-to-open-source',
-  format: 'es', // runs 'es' format by default if no format provided.
-  dest: 'es/index.js', // where to output
+  input: 'src/index.js',
   plugins: [
-    flow(opts.flow), // strips flow syntax.
-    multidest([
-      {
-        format: 'cjs',
-        dest: 'lib/index.js',
-        plugins: [flow(opts.flow), babel(opts.babel)],
-      },
-      {
-        format: 'umd',
-        dest: 'dist/how-to-open-source.js',
-        plugins: [flow(opts.flow), babel(opts.babel)],
-      },
-      {
-        format: 'umd',
-        dest: 'dist/how-to-open-source.min.js',
-        plugins: [flow(opts.flow), babel(opts.babel), uglify()],
-      },
-    ]),
+    flow(opts.flow),
+    babel(opts.babel),
+    uglify(),
     gzip(opts.gzip),
-    conditional(!isProd, [filesize()]),
-    cleanup(), // remove whitespace, comments, console.logs, debuggers.
+    cleanup()
   ],
-};
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs'
+    },
+    {
+      file: pkg.browser,
+      format: 'umd',
+      name: 'how-to-open-source'
+    }
+  ]
+}
