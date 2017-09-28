@@ -46,7 +46,7 @@ module.exports = {
       default: series.nps('library.pack', 'library.open'),
       open: {
         description: 'Open the tarball file',
-        script: 'open how-to-open-source-1.3.0.tgz'
+        script: 'open how-to-open-source-2.0.0.tgz'
       },
       pack: {
         description: 'Package the build for local use',
