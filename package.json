@@ -53,7 +53,7 @@
     "codecov": "~2.3.0",
     "commitizen": "~2.9.6",
     "cz-conventional-changelog": "~2.0.0",
-    "eslint": "~4.7.2",
+    "eslint": "~4.8.0",
     "eslint-config-equimper": "~2.2.1",
     "eslint-config-prettier": "~2.6.0",
     "eslint-plugin-flowtype": "~2.36.0",
