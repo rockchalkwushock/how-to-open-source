@@ -63,7 +63,7 @@
     "eslint-config-equimper": "~2.2.1",
     "eslint-config-prettier": "~2.6.0",
     "eslint-plugin-flowtype": "~2.36.0",
-    "flow-bin": "~0.55.0",
+    "flow-bin": "~0.58.0",
     "flow-typed": "~2.1.5",
     "husky": "~0.14.3",
     "jest": "~21.2.1",
