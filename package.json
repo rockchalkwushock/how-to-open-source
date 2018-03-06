@@ -76,6 +76,9 @@
       "git add"
     ]
   },
+  "release": {
+    "verifyConditions": "condition-circle"
+  },
   "devDependencies": {
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
@@ -85,8 +88,9 @@
     "babel-preset-env": "~1.6.0",
     "codecov": "~3.0.0",
     "commitizen": "~2.9.6",
-    "eslint": "4.9.0",
+    "condition-circle": "^2.0.1",
     "cz-conventional-changelog": "~2.1.0",
+    "eslint": "4.9.0",
     "eslint-config-equimper": "~2.2.2",
     "eslint-config-prettier": "~2.9.0",
     "eslint-plugin-flowtype": "~2.46.1",
