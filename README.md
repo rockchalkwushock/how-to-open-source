@@ -4,10 +4,8 @@
 [![npm](https://img.shields.io/npm/l/how-to-open-source.svg?style=flat-square)](https://www.npmjs.com/package/how-to-open-source)
 [![npm](https://img.shields.io/npm/dt/how-to-open-source.svg?style=flat-square)](https://www.npmjs.com/package/how-to-open-source)
 
-[![Travis](https://img.shields.io/travis/rockchalkwushock/how-to-open-source.svg?branch=master&style=flat-square)](https://travis-ci.org/rockchalkwushock/how-to-open-source)
 [![CircleCI](https://img.shields.io/circleci/project/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://circleci.com/gh/rockchalkwushock/how-to-open-source)
 [![Codecov](https://img.shields.io/codecov/c/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://codecov.io/gh/rockchalkwushock/how-to-open-source)
-[![DependencyCI](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/badge?style=flat-square)](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/builds/1)
 [![Greenkeeper](https://img.shields.io/badge/Greenkeeper-enabled-brightgreen.svg?style=flat-square)](https://greenkeeper.io/)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
