@@ -8,19 +8,21 @@ Feature Addition or Fixing a Bug?
 What issue is this in reference too?
 
 ## Guidelines for Merging
+
 1. All code must pass `flow-typechecking`.
 2. All code must pass `linting`.
 3. Any code added must be tested and maintain coverage.
 4. Any code updated or removed must not break the build & coverage.
 
 ## Brief Steps Summary
-```bash
+
+```sh
 ### Changes made, bugs fixed, features added.
 ### Tests written/updated.
 ### Bump package.json version according to SemVer.
 $ git add -A
 $ git status ### confirm correct files are present.
-$ npm run commit
+$ npm run cm
 ### If linting, flow-typecheck, or testing fails fix and repeat.
 ### Fill in the pertinent information based on your changes in the commitizen log.
 $ git push origin <branch>

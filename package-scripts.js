@@ -6,6 +6,8 @@ const crossEnv = npsUtils.crossEnv
 const rimraf = npsUtils.rimraf
 const series = npsUtils.series
 
+const version = require('./package.json').version
+
 module.exports = {
   scripts: {
     build: {
@@ -45,7 +47,7 @@ module.exports = {
       default: series.nps('library.pack', 'library.open'),
       open: {
         description: 'Open the tarball file',
-        script: 'open how-to-open-source-2.0.0.tgz'
+        script: `open how-to-open-source-${version}.tgz`
       },
       pack: {
         description: 'Package the build for local use',
@@ -120,10 +122,6 @@ module.exports = {
       withCoverage: {
         description: 'Validate & generate coverage.',
         script: series.nps('validate', 'test.coverage')
-      },
-      withTests: {
-        description: 'Validate with testing',
-        script: series.nps('validate', 'test')
       }
     }
   }
