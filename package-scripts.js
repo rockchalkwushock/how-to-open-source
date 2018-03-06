@@ -81,11 +81,7 @@ module.exports = {
     release: {
       description:
         'We automate releases with semantic-release. This should only be run on travis',
-      script: series(
-        'semantic-release pre',
-        'npm publish',
-        'semantic-release post'
-      )
+      script: 'semantic-release'
     },
     sandbox: {
       description: 'Run all sandbox scripts.',
@@ -118,7 +114,7 @@ module.exports = {
     },
     validate: {
       description: 'Validate code by linting, type-checking.',
-      default: concurrent.nps('lint', 'flow'),
+      default: concurrent.nps('lint.fix', 'flow'),
       withCoverage: {
         description: 'Validate & generate coverage.',
         script: concurrent.nps('validate', 'test.coverage')

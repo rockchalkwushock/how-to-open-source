@@ -27,56 +27,55 @@
   ],
   "scripts": {
     "build": "nps build.andTest",
-    "commit": "nps commit",
+    "cm": "nps commit",
     "prebuild": "nps validate.withTests",
-    "precommit": "lint-staged && nps validate",
-    "prettier": "prettier --single-quote --no-semi --write",
     "start": "nps",
     "test": "nps test"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "nps validate.withCoverage && lint-staged"
+    }
+  },
   "lint-staged": {
     "*.js": [
-      "yarn prettier",
+      "prettier --single-quote --no-semi --write",
       "git add"
     ]
   },
   "devDependencies": {
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
-    "babel-jest": "~21.2.0",
     "babel-plugin-external-helpers": "~6.22.0",
     "babel-plugin-syntax-flow": "~6.18.0",
     "babel-plugin-transform-flow-strip-types": "~6.22.0",
     "babel-preset-env": "~1.6.0",
-    "codecov": "~2.3.0",
+    "codecov": "~3.0.0",
     "commitizen": "~2.9.6",
-    "cz-conventional-changelog": "~2.0.0",
-    "eslint": "~4.7.2",
-    "eslint-config-equimper": "~2.2.1",
-    "eslint-config-prettier": "~2.6.0",
-    "eslint-plugin-flowtype": "~2.36.0",
-    "flow-bin": "~0.55.0",
-    "flow-typed": "~2.1.5",
-    "husky": "~0.14.3",
-    "jest": "~21.2.1",
-    "lint-staged": "~4.2.3",
-    "nps": "~5.7.0",
-    "nps-utils": "~1.3.0",
-    "prettier": "~1.7.2",
-    "rollup": "~0.50.0",
-    "rollup-plugin-babel": "~3.0.2",
-    "rollup-plugin-cleanup": "~1.0.0",
+    "cz-conventional-changelog": "~2.1.0",
+    "eslint": "~4.18.2",
+    "eslint-config-equimper": "~2.2.2",
+    "eslint-config-prettier": "~2.9.0",
+    "eslint-plugin-flowtype": "~2.46.1",
+    "flow-bin": "~0.66.0",
+    "flow-typed": "~2.3.0",
+    "husky": "^0.15.0-rc.8",
+    "jest": "~22.4.2",
+    "lint-staged": "~7.0.0",
+    "nps": "~5.8.1",
+    "nps-utils": "~1.5.0",
+    "prettier": "~1.11.1",
+    "rollup": "~0.56.4",
+    "rollup-plugin-babel": "~3.0.3",
+    "rollup-plugin-cleanup": "~2.0.0",
     "rollup-plugin-flow": "~1.1.1",
     "rollup-plugin-gzip": "~1.3.0",
-    "rollup-plugin-uglify": "~2.0.1",
-    "semantic-release": "~8.0.3"
+    "rollup-plugin-uglify": "~3.0.0",
+    "semantic-release": "~12.4.1"
   }
 }
