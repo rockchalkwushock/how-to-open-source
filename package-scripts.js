@@ -2,10 +2,11 @@ const npsUtils = require('nps-utils')
 
 // npsUtils has these deps native to the package.
 // no need to yarn add -D any of these packages.
-const concurrent = npsUtils.concurrent
 const crossEnv = npsUtils.crossEnv
 const rimraf = npsUtils.rimraf
 const series = npsUtils.series
+
+const version = require('./package.json').version
 
 module.exports = {
   scripts: {
@@ -46,7 +47,7 @@ module.exports = {
       default: series.nps('library.pack', 'library.open'),
       open: {
         description: 'Open the tarball file',
-        script: 'open how-to-open-source-2.0.0.tgz'
+        script: `open how-to-open-source-${version}.tgz`
       },
       pack: {
         description: 'Package the build for local use',
@@ -81,11 +82,7 @@ module.exports = {
     release: {
       description:
         'We automate releases with semantic-release. This should only be run on travis',
-      script: series(
-        'semantic-release pre',
-        'npm publish',
-        'semantic-release post'
-      )
+      script: 'semantic-release'
     },
     sandbox: {
       description: 'Run all sandbox scripts.',
@@ -101,11 +98,10 @@ module.exports = {
     },
     test: {
       description: 'Test code base.',
-      default:
-        'jest __tests__/*pre.test.js --config jest.config.json --runInBand',
+      default: 'jest __tests__/*pre.test.js --runInBand',
       build: {
         description: 'Test end product.',
-        script: 'jest __tests__/*.post.test.js --config jest.config.json'
+        script: 'jest __tests__/*.post.test.js'
       },
       coverage: {
         description: 'Generate coverage on code base.',
@@ -118,14 +114,14 @@ module.exports = {
     },
     validate: {
       description: 'Validate code by linting, type-checking.',
-      default: concurrent.nps('lint', 'flow'),
+      default: series.nps('lint.fix', 'flow'),
+      dependencies: {
+        description: 'Check dependencies for vulnerabilities with Snyk.io',
+        script: 'snyk test'
+      },
       withCoverage: {
         description: 'Validate & generate coverage.',
-        script: concurrent.nps('validate', 'test.coverage')
-      },
-      withTests: {
-        description: 'Validate with testing',
-        script: concurrent.nps('validate', 'test')
+        script: series.nps('validate', 'test.coverage')
       }
     }
   }

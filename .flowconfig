@@ -3,10 +3,11 @@
 .*/flow-typed/.*
 .*/node_modules/.*
 .*/__tests__/.*
+.*\rollup.config\.js
+.*\rollup.config.es\.js
 
 [include]
 
 [libs]
-flow-typed
 
 [options]

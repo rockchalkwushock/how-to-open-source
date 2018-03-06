@@ -7,7 +7,6 @@
 [![Travis](https://img.shields.io/travis/rockchalkwushock/how-to-open-source.svg?branch=master&style=flat-square)](https://travis-ci.org/rockchalkwushock/how-to-open-source)
 [![CircleCI](https://img.shields.io/circleci/project/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://circleci.com/gh/rockchalkwushock/how-to-open-source)
 [![Codecov](https://img.shields.io/codecov/c/github/rockchalkwushock/how-to-open-source.svg?style=flat-square)](https://codecov.io/gh/rockchalkwushock/how-to-open-source)
-[![Code Climate](https://img.shields.io/codeclimate/github/rockchalkwushock/how-to-open-source/badges/gpa.svg?style=flat-square)](https://codeclimate.com/github/rockchalkwushock/how-to-open-source)
 [![DependencyCI](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/badge?style=flat-square)](https://dependencyci.com/github/rockchalkwushock/how-to-open-source/builds/1)
 [![Greenkeeper](https://img.shields.io/badge/Greenkeeper-enabled-brightgreen.svg?style=flat-square)](https://greenkeeper.io/)
 
@@ -67,20 +66,16 @@ Scripts in the `package.json`:
 
 ```bash
 yarn build
-# prebuild git-hook will run first validating the code...
 # Executes rollup build of all distributions in production mode
 
-yarn commit
+yarn cm
 # precommit git-hook will run first executing scripts
 # in lint-staged & validating the code...
 # Executes the commitizen-cli
 
-yarn prettier
-# Executes formating of code base defined by prettier.js.
-
 yarn start
 # Executes nps command.
-# used in .travis.yml to pass prefix to scripts
+# used in .circleci/config.yml to pass prefix to scripts
 # i.e. yarn start test --> nps test
 
 yarn test
