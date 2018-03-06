@@ -1,6 +1,6 @@
 {
   "name": "how-to-open-source",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "description": "A repository for learning how to publish NPM packages as well as contribute to open source projects.",
   "author": "Cody Brunner <rockchalkwushock@icloud.com> (https://codybrunner.me)",
@@ -25,9 +25,7 @@
     "yarn"
   ],
   "scripts": {
-    "build": "nps build.andTest",
     "cm": "nps commit",
-    "prebuild": "nps validate.withTests",
     "start": "nps",
     "test": "nps test"
   },
@@ -41,8 +39,13 @@
       "jest": true,
       "node": true
     },
-    "extends": ["equimper", "prettier"],
-    "plugins": ["flowtype"]
+    "extends": [
+      "equimper",
+      "prettier"
+    ],
+    "plugins": [
+      "flowtype"
+    ]
   },
   "husky": {
     "hooks": {
@@ -63,7 +66,9 @@
       }
     },
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["/utils/"]
+    "testPathIgnorePatterns": [
+      "/utils/"
+    ]
   },
   "lint-staged": {
     "*.js": [
@@ -80,8 +85,8 @@
     "babel-preset-env": "~1.6.0",
     "codecov": "~3.0.0",
     "commitizen": "~2.9.6",
+    "eslint": "4.9.0",
     "cz-conventional-changelog": "~2.1.0",
-    "eslint": "~4.18.2",
     "eslint-config-equimper": "~2.2.2",
     "eslint-config-prettier": "~2.9.0",
     "eslint-plugin-flowtype": "~2.46.1",
@@ -99,6 +104,7 @@
     "rollup-plugin-flow": "~1.1.1",
     "rollup-plugin-gzip": "~1.3.0",
     "rollup-plugin-uglify": "~3.0.0",
-    "semantic-release": "~12.4.1"
+    "semantic-release": "^12.4.1",
+    "snyk": "^1.69.10"
   }
 }

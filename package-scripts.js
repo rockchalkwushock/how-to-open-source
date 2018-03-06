@@ -113,6 +113,10 @@ module.exports = {
     validate: {
       description: 'Validate code by linting, type-checking.',
       default: series.nps('lint.fix', 'flow'),
+      dependencies: {
+        description: 'Check dependencies for vulnerabilities with Snyk.io',
+        script: 'snyk test'
+      },
       withCoverage: {
         description: 'Validate & generate coverage.',
         script: series.nps('validate', 'test.coverage')

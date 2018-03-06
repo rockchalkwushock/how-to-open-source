@@ -1,0 +1,143 @@
+version: 2
+jobs:
+  checkout_code:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - restore_cache:
+          keys:
+            - 'yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}'
+            - 'yarn-cache-{{ .Branch }}'
+            - yarn-cache-
+      - run: yarn install
+      - save_cache:
+          key: 'yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}'
+          paths: node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+  check_dependencies:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn start validate.dependencies
+  validate_code:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn start validate
+  test_node_6:
+    docker:
+      - image: 'circleci/node:6'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn test
+  test_node_7:
+    docker:
+      - image: 'circleci/node:7'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn test
+  test_node_8:
+    docker:
+      - image: 'circleci/node:8'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn test
+  test_latest_and_report:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn start test.coverage
+      - run: yarn start reportCoverage
+      - store_artifacts:
+          path: ./coverage/clover.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: ./coverage/clover.xml
+  build:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn start build.andTest
+      - persist_to_workspace:
+            root: .
+            paths: .
+  release:
+    docker:
+      - image: 'circleci/node:latest'
+    working_directory: ~/how-to-open-source
+    steps:
+      - attach_workspace:
+          at: ~/how-to-open-source
+      - run: yarn start release || true
+workflows:
+  version: 2
+  test_and_release:
+    jobs:
+      - checkout_code
+      - check_dependencies:
+          requires:
+            - checkout_code
+      - validate_code:
+          requires:
+            - checkout_code
+      - test_node_6:
+          requires:
+            - checkout_code
+            - check_dependencies
+            - validate_code
+      - test_node_7:
+          requires:
+            - checkout_code
+            - check_dependencies
+            - validate_code
+      - test_node_8:
+          requires:
+            - checkout_code
+            - check_dependencies
+            - validate_code
+      - test_latest_and_report:
+          requires:
+            - checkout_code
+            - check_dependencies
+            - validate_code
+      - build:
+          requires:
+            - test_node_6
+            - test_node_7
+            - test_node_8
+            - test_latest_and_report
+      - release:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
