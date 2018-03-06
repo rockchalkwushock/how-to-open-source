@@ -2,7 +2,6 @@ const npsUtils = require('nps-utils')
 
 // npsUtils has these deps native to the package.
 // no need to yarn add -D any of these packages.
-const concurrent = npsUtils.concurrent
 const crossEnv = npsUtils.crossEnv
 const rimraf = npsUtils.rimraf
 const series = npsUtils.series
@@ -97,11 +96,10 @@ module.exports = {
     },
     test: {
       description: 'Test code base.',
-      default:
-        'jest __tests__/*pre.test.js --config jest.config.json --runInBand',
+      default: 'jest __tests__/*pre.test.js --runInBand',
       build: {
         description: 'Test end product.',
-        script: 'jest __tests__/*.post.test.js --config jest.config.json'
+        script: 'jest __tests__/*.post.test.js'
       },
       coverage: {
         description: 'Generate coverage on code base.',
@@ -114,14 +112,14 @@ module.exports = {
     },
     validate: {
       description: 'Validate code by linting, type-checking.',
-      default: concurrent.nps('lint.fix', 'flow'),
+      default: series.nps('lint.fix', 'flow'),
       withCoverage: {
         description: 'Validate & generate coverage.',
-        script: concurrent.nps('validate', 'test.coverage')
+        script: series.nps('validate', 'test.coverage')
       },
       withTests: {
         description: 'Validate with testing',
-        script: concurrent.nps('validate', 'test')
+        script: series.nps('validate', 'test')
       }
     }
   }

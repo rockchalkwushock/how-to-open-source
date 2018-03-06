@@ -1,5 +1,0 @@
-machine:
-  timezone:
-    America/Chicago
-  node:
-    version: 6.10.0

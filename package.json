@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "description": "A repository for learning how to publish NPM packages as well as contribute to open source projects.",
-  "author": "Cody Brunner <rockchalkwushock@icloud.com> (https://rcws-development.com)",
+  "author": "Cody Brunner <rockchalkwushock@icloud.com> (https://codybrunner.me)",
   "homepage": "https://github.com/rockchalkwushock/how-to-open-source#readme",
   "repository": "https://github.com/rockchalkwushock/how-to-open-source.git",
   "bugs": "https://github.com/rockchalkwushock/how-to-open-source/issues",
@@ -13,8 +13,7 @@
   "files": [
     "dist",
     "es",
-    "lib",
-    "LICENSE"
+    "lib"
   ],
   "keywords": [
     "commitizen",
@@ -37,10 +36,34 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "eslintConfig": {
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "extends": ["equimper", "prettier"],
+    "plugins": ["flowtype"]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "nps validate.withCoverage && lint-staged"
     }
+  },
+  "jest": {
+    "bail": true,
+    "collectCoverageFrom": [
+      "src/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/utils/"]
   },
   "lint-staged": {
     "*.js": [
