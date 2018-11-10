@@ -90,7 +90,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.9.0",
     "eslint-config-equimper": "^2.2.2",
-    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-prettier": "^3.2.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "flow-bin": "^0.66.0",
     "husky": "^0.15.0-rc.8",
