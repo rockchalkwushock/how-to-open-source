@@ -93,7 +93,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "flow-bin": "^0.66.0",
-    "husky": "^0.15.0-rc.8",
+    "husky": "^2.5.0",
     "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "nps": "^5.8.1",
