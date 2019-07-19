@@ -86,7 +86,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "codecov": "^3.0.0",
-    "commitizen": "^2.9.6",
+    "commitizen": "^4.0.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.9.0",
     "eslint-config-equimper": "^2.2.2",
