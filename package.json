@@ -91,7 +91,7 @@
     "eslint": "^4.9.0",
     "eslint-config-equimper": "^2.2.2",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-flowtype": "^4.5.0",
     "flow-bin": "^0.66.0",
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",
